@@ -25,6 +25,7 @@ async function main(currentBookedDate) {
 
     while(true) {
       const date = await checkAvailableDate(sessionHeaders)
+      console.log(date)
 
       if (!date) {
         log("no dates available")
