@@ -8,7 +8,7 @@ const PASSWORD = process.env.PASSWORD
 const SCHEDULE_ID = process.env.SCHEDULE_ID
 const FACILITY_ID = process.env.FACILITY_ID
 
-const BASE_URI = 'https://ais.usvisa-info.com/pt-br/niv'
+const BASE_URI = 'https://ais.usvisa-info.com/en-ca/niv'
 
 async function main(currentBookedDate) {
   if (!currentBookedDate) {
