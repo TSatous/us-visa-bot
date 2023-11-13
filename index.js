@@ -18,6 +18,8 @@ async function main(currentBookedDate) {
 
   log(`Initializing with current date ${currentBookedDate}`)
 
+  var softBlock = false
+
   try {
     const sessionHeaders = await login()
 
@@ -26,17 +28,25 @@ async function main(currentBookedDate) {
 
       if (!date) {
         log("no dates available")
+        softBlock = true
       } else if (date > currentBookedDate) {
         log(`nearest date is further than already booked (${currentBookedDate} vs ${date})`)
+        softBlock = false
       } else {
         currentBookedDate = date
         const time = await checkAvailableTime(sessionHeaders, date)
 
         book(sessionHeaders, date, time)
           .then(d => log(`booked time at ${date} ${time}`))
+        softBlock = false
       }
 
-      await sleep(3)
+      if (softBlock) {
+        const currentDate = new Date()
+        await sleep((30 - (currentDate.getMinutes() % 30)) * 60)
+      } else {
+        await sleep(55)
+      }
     }
 
   } catch(err) {
