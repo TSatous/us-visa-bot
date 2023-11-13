@@ -25,7 +25,6 @@ async function main(currentBookedDate) {
 
     while(true) {
       const date = await checkAvailableDate(sessionHeaders)
-      console.log(date)
 
       if (!date) {
         log("no dates available")
@@ -34,6 +33,7 @@ async function main(currentBookedDate) {
         log(`nearest date is further than already booked (${currentBookedDate} vs ${date})`)
         softBlock = false
       } else {
+        log("test")
         currentBookedDate = date
         const time = await checkAvailableTime(sessionHeaders, date)
 
