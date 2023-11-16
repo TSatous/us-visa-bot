@@ -46,7 +46,7 @@ async function main(currentBookedDate) {
         const currentDate = new Date()
         await sleep((30 - (currentDate.getMinutes() % 30)) * 60)
       } else {
-        await sleep(55)
+        await sleep(62)
       }
     }
 
