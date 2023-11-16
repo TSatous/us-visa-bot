@@ -18,9 +18,9 @@ npm install
 
 ```sh
 export USERNAME=''
-export PASSWORD = ''
-export SCHEDULE_ID = ''
-export FACILITY_ID = ''
+export PASSWORD=''
+export SCHEDULE_ID=''
+export FACILITY_ID=''
 
 ./index.js <your current interview date, ex: 2023-01-01>
 ```
